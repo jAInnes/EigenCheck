@@ -1,0 +1,143 @@
+/* Hochschule Hannover Design */
+:root {
+    --primary-color: #8AB800;
+    --secondary-color: #4A4A4A;
+    --background-light: #F5F5F5;
+    --accent-color: #E6E6E6;
+    --text-color: #333;
+    --button-hover: #6A9600;
+
+    --success-bg: #e8f5e9;
+    --error-bg: #ffebee;
+    --compare-bg: #fff9c4;
+}
+
+/* Schriftart und größe */
+body {
+    font-family: "Arial", sans-serif;
+    background: var(--background-light);
+    color: var(--text-color);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 20px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Buttons */
+button {
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+p {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    input, button {
+        width: 100%;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Logo Position */
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: auto;
+}
+
+/* Output Box (Konsolen prints) */
+#runStatus {
+    white-space: pre-wrap;
+    text-align: left;
+    background-color: var(--compare-bg);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    max-height: 400px;
+}
+
+/* Optional: Admin Tabelle style */
+#userList {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#userList th, #userList td {
+    border: 1px solid var(--accent-color);
+    padding: 8px;
+    text-align: center;
+}
+
+#userList th {
+    background-color: var(--primary-color);
+    color: white;
+}

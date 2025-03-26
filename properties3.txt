@@ -1,0 +1,7 @@
+COMPILATION_FOLDER=a3_compilation
+INPUT_FILE=qr.dat
+EXPECTED_FILE=expected.txt
+UPLOAD_FOLDER=uploads
+USER_DB=users.json
+USE_STATIC_LIB=true
+LIB_FOLDER=lib

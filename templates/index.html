@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerik-Testumgebung | Hochschule Hannover</title>
+    <link rel="stylesheet" href="styles.css"> <!--  Use CSS -->
+</head>
+<header>
+    <img src="assets/logo.png" alt="HSH Logo" class="logo">
+    <h1>EigenCheck</h1>
+</header>
+
+<body>
+    <div class="container">
+        <h1>EigenCheck</h1>
+
+        <!--  Login Bereich -->
+        <div id="loginSection">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Benutzername">
+            <input type="password" id="password" placeholder="Passwort">
+            <button onclick="login()">Login</button>
+            <p id="loginStatus"></p>
+        </div>
+
+        <!--  Upload Bereich (zunächst verborgen) -->
+        <div id="uploadSection" class="hidden">
+            <h2>Datei hochladen</h2>
+            <input type="file" id="fileInput">
+            <button onclick="uploadFile()">Hochladen</button>
+            <p id="uploadStatus"></p>
+        </div>
+
+        <!--  Ausführungs Bereich (zunächst verborgen) -->
+        <div id="runSection" class="hidden">
+            <h2>Programm ausführen</h2>
+            <button onclick="runCProgram()">Ausführen</button>
+            <p id="runStatus"></p>
+        </div>
+
+        <!-- Admin Bereich (zunächst verborgen) -->
+<div id="adminSection" class="hidden">
+    <h2>Admin Bereich</h2>
+<div id="manualUpdateStatus"></div>
+    <table id="userList"></table> 
+
+    <h3>Benutzer hinzufügen</h3>
+    <input type="text" id="newUsername" placeholder="Benutzername">
+    <input type="password" id="newPassword" placeholder="Passwort">
+    <button onclick="addUser()">Hinzufügen</button>
+    <p id="addUserStatus"></p>
+
+    <h3>Benutzer entfernen</h3>
+    <input type="text" id="removeUsername" placeholder="Benutzername">
+    <button onclick="removeUser()">Entfernen</button>
+    <p id="removeUserStatus"></p>
+</div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
