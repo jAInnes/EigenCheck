@@ -106,7 +106,8 @@ compile_global_files()
 
 
 # Initialisiere Flask
-app = Flask(__name__, template_folder="templates", static_folder="templates/static")
+app = Flask(__name__, template_folder="templates", static_folder="static")
+
 
 CORS(app, supports_credentials=True)  
 app.secret_key = "supersecretkey"
@@ -340,6 +341,9 @@ def upload_file():
     update_and_save_table()
     return jsonify({"message": f"Datei erfolgreich hochgeladen und gespeichert als `user_code.c`", "path": filepath}), 200
 
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 
 @app.route("/files/<filename>", methods=["GET"])
