@@ -5,3 +5,4 @@ UPLOAD_FOLDER=uploads
 USER_DB=users.json
 USE_STATIC_LIB=true
 LIB_FOLDER=lib
+ADMIN_PASSWORD=root

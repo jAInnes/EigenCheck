@@ -1,4 +1,4 @@
-// Backend URL (Change if needed)
+// Backend URL (ggf. Ändern für Lokal/web- Hosting)
 const BACKEND_URL = "http://127.0.0.1:5000";
 
 //  Authentifiziere Nutzer beim Backend und speichere Status im sessionStorage
@@ -46,7 +46,7 @@ function isLoggedIn() {
 
 //  Zeige Uploadbereich für reguläre Nutzer
 function showUploadSection() {
-    document.getElementById("adminSection").classList.add("hidden"); // Hide admin section 
+    document.getElementById("adminSection").classList.add("hidden"); 
     document.getElementById("uploadSection").classList.remove("hidden");
 }
 
