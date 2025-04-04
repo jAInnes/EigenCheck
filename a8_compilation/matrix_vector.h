@@ -1,3 +1,4 @@
+#include <stdio.h> 
 double* new_vector(int n);
 double** new_matrix(int n, int m);
 void free_matrix(double **mat, int n);
