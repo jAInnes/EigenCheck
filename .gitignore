@@ -1,34 +1,54 @@
-#  Python-related files
+# ----------------------
+# Python-related files
+# ----------------------
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
 venv/
 
-#  C Compiled Files
+# ----------------------
+# C/C++ compiled objects
+# ----------------------
 *.o
 *.out
 *.exe
+*.a
+*.so
 
-#  Logs & Temporary Files
+# ----------------------
+# Logs & Temp files
+# ----------------------
 *.log
 *.tmp
 
-#  System Files (Mac & Windows)
+# ----------------------
+# System files
+# ----------------------
 .DS_Store
 Thumbs.db
-
-#  IDE & Editor Configs
+*.Zone.Identifier
+# ----------------------
+# IDE & Editor configs
+# ----------------------
 .vscode/
 .idea/
 
-#  Uploaded User Files (Optional, if not needed in repo)
+# ----------------------
+# Project-specific
+# ----------------------
+
+# Upload folders & result files
 uploads/
 users.json
-course_results.txt
-#  Git-Specific Files
-.git/
-users.json
+uploads/admin/course_results.txt
+uploads/*/test_result.txt
+
+# Compiled Libraries
 compilation/global_lib.a
+lib/libmatrix.a
 lib/libmatrix_vector.so
-a8_compilation/expected.txt:Zone.Identifier
+lib/matrix_vector.o
+
+# Output files for Aufgabe 8
+a8_compilation/global_lib.a
+
+# Zone.Identifier (from Windows)
