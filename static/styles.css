@@ -22,6 +22,23 @@ body {
     padding: 0;
 }
 
+/* Header Styling */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    gap: 20px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+/* Hauptcontainer */
 .container {
     max-width: 600px;
     margin: 50px auto;
@@ -94,19 +111,18 @@ p {
     input, button {
         width: 100%;
     }
+
+    header {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 60px;
+    }
 }
 
 .hidden {
     display: none;
-}
-
-/* Logo Position */
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100px;
-    height: auto;
 }
 
 /* Output Box (Konsolen prints) */
@@ -124,7 +140,7 @@ p {
     max-height: 400px;
 }
 
-/* Optional: Admin Tabelle style */
+/* Admin Tabelle */
 #userList {
     width: 100%;
     border-collapse: collapse;
