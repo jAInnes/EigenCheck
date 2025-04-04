@@ -1,0 +1,34 @@
+#  Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+#  C Compiled Files
+*.o
+*.out
+*.exe
+
+#  Logs & Temporary Files
+*.log
+*.tmp
+
+#  System Files (Mac & Windows)
+.DS_Store
+Thumbs.db
+
+#  IDE & Editor Configs
+.vscode/
+.idea/
+
+#  Uploaded User Files (Optional, if not needed in repo)
+uploads/
+users.json
+course_results.txt
+#  Git-Specific Files
+.git/
+users.json
+compilation/global_lib.a
+lib/libmatrix_vector.so
+a8_compilation/expected.txt:Zone.Identifier
