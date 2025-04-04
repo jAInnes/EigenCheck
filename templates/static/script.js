@@ -1,5 +1,7 @@
 // Backend URL (ggf. Ändern für Lokal/web- Hosting)
-const BACKEND_URL = "http://127.0.0.1:5000";
+const BACKEND_URL = window.location.hostname.includes("render.com")
+    ? window.location.origin  // Uses the Render domain dynamically
+    : "http://127.0.0.1:5000";  // Fallback for local testing
 
 //  Authentifiziere Nutzer beim Backend und speichere Status im sessionStorage
 
