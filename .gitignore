@@ -54,3 +54,6 @@ a8_compilation/global_lib.a
 # Zone.Identifier (from Windows)
 *:Zone.Identifier
 *:Zone.Identifier:Zone.Identifier
+lib/matrix_vector.h:Zone.Identifier:Zone.Identifier
+*.Identifier
+*Zone.Identifier*
