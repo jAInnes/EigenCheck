@@ -1,20 +1,13 @@
-# a3_compilation/main.make
-
 CC = gcc
-CFLAGS = -Wall -c -I../lib      # ← include ../lib für Header-Dateien
-LDFLAGS = -lm
-LIB = ../lib/libmatrix.a
+CFLAGS = -Wall -c -I../lib
 
-all: main.out
+SRC = a3_compilation/main.c
+OBJ = a3_compilation/main.o
 
-main.out: main.o qr.o
-	$(CC) -o main.out main.o qr.o $(LIB) $(LDFLAGS)
+all: $(OBJ)
 
-main.o: main.c
-	$(CC) $(CFLAGS) main.c -o main.o
-
-qr.o: qr.c qr.h
-	$(CC) $(CFLAGS) qr.c -o qr.o
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(OBJ)
 
 clean:
-	rm -f *.o *.out
+	rm -f a3_compilation/*.o a3_compilation/*.out

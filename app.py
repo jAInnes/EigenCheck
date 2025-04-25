@@ -51,7 +51,12 @@ def update_and_save_table():
     for username in users:
         if username != "admin":
             file_exists = user_files[username]
-            test_results = "0%" if not file_exists else "Lade Testergebnisse..."
+            test_results = "0%" 
+            user_folder = os.path.join(UPLOAD_FOLDER, username)
+            result_file_path = os.path.join(user_folder, "test_result.txt")
+            if os.path.exists(result_file_path):
+                with open(result_file_path, "r") as result_file:
+                    test_result = result_file.read().strip()
             table_contents += f"{username},{file_exists},{test_results}\n"
 
     admin_dir = "uploads/admin"
@@ -60,6 +65,7 @@ def update_and_save_table():
 
     with open(file_path, "w") as f:
         f.write(table_contents)
+   # update_and_save_table()
     print("Tabelle aktualisiert und gespeichert.")
 def create_user_folder(username):
     """Erstelle Ordner für einen Nutzer."""
@@ -74,18 +80,34 @@ def delete_user_folder(username):
     if os.path.exists(user_dir):
         shutil.rmtree(user_dir)
         print(f"✅Ordner gelöscht für Nutzer: {username}")  # Debugging output
+import subprocess
+import os
+
 def compile_lib_folder():
-    """Kompiliert die Bibliothek aus dem konfigurierten lib-Verzeichnis."""
+    """Kompiliert die statische Bibliothek im konfigurierten lib-Verzeichnis."""
     lib_path = config.get("LIB_FOLDER", "lib")
-    make_result = subprocess.run(["make", "-C", lib_path], capture_output=True, text=True)
-    if make_result.returncode == 0:
+    print(f"🔧 Kompiliere Bibliothek in {lib_path} ...")
+    result = subprocess.run(["make", "-C", lib_path], capture_output=True, text=True)
+    if result.returncode == 0:
         print("✅ Bibliothek erfolgreich kompiliert.")
     else:
-        print("⚠️ Fehler beim Kompilieren der Bibliothek:", make_result.stderr)
+        print("⚠️ Fehler beim Kompilieren der Bibliothek:")
+        print(result.stderr)
 
+def precompile_main_o():
+    """Kompiliert nur main.o, um spätere Tests zu ermöglichen – ohne vollständiges Linken."""
+    print("🔧 Kompiliere main.o zur Vorbereitung ...")
+    makefile_path = os.path.join("a3_compilation", "main.make")
+    result = subprocess.run(["make", "-f", makefile_path], capture_output=True, text=True)
+    if result.returncode == 0:
+        print("✅ main.o erfolgreich vorbereitet.")
+    else:
+        print("⚠️ Fehler beim Kompilieren von main.o:")
+        print(result.stderr)
 
 # Beim Start:
 compile_lib_folder()
+precompile_main_o()
 
 
 def compile_global_files():
@@ -206,6 +228,7 @@ def check_user_files(users):
 # Lade Nutzer bei Start
 users = load_users()
 @app.route("/save_table", methods=["POST"])
+
 def save_table():
     """Speichere die Daten in einer Tabelle."""
     data = request.json
@@ -232,7 +255,7 @@ def save_table():
     with open(file_path, "w") as f:
         f.write(updated_table_contents)
 
-   # return jsonify({"message": "Tabellendaten erfolgreich gespeichert", "status": "success"})
+    return jsonify({"message": "Tabellendaten erfolgreich gespeichert", "status": "success"})
 @app.route("/uploads/<path:filename>", methods=["GET"])
 def download_file(filename):
     """Serve a file from the uploads directory."""
